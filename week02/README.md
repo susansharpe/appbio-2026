@@ -52,10 +52,19 @@ From this directory, run:
 make
 ```
 
-The Makefile creates `data/raw/` and downloads:
+After `make` finishes, your local `week02` directory will contain a new
+`data/raw/` directory with these two downloaded files:
 
 - `data/raw/NC_001367.1.fasta`
 - `data/raw/NC_001367.1.gff3`
+
+These files are generated outputs and are intentionally ignored by Git, so
+they do not appear on GitHub. Every reviewer creates their own copies by
+running `make`. Verify them with:
+
+```sh
+ls -lh data/raw/
+```
 
 Running `make` again does not redownload files that already exist. To remove
 the downloaded data and repeat the download, run:
