@@ -34,9 +34,17 @@ sudo apt update
 sudo apt install -y make curl
 ```
 
-The reviewer should clone the repository, open a terminal in
-`appbio-2026/week02`, install these two packages if necessary, and run the
-commands below.
+For a fresh Ubuntu or WSL setup, the reviewer can run:
+
+```sh
+git clone https://github.com/susansharpe/appbio-2026.git
+cd appbio-2026/week02
+sudo apt update
+sudo apt install -y make curl
+```
+
+If the repository is already cloned, only change into its `week02` directory
+and install any missing packages.
 
 From this directory, run:
 
