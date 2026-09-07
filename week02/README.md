@@ -25,56 +25,51 @@ and their coding sequences. I therefore consider this build **complete for a
 reference genome**, while noting that it is a single reference isolate and
 does not represent the sequence variation found across TMV populations.
 
+
 ## Reproduce the download
 
-Requirements: `make` and `curl`. On Ubuntu or WSL, install them with:
+This project requires **`make`** and **`curl`**. On Ubuntu or WSL, install them with:
 
 ```sh
 sudo apt update
 sudo apt install -y make curl
 ```
 
-For a fresh Ubuntu or WSL setup, the reviewer can run:
+To reproduce the data download from a new copy of this repository:
 
 ```sh
 git clone https://github.com/susansharpe/appbio-2026.git
 cd appbio-2026/week02
-sudo apt update
-sudo apt install -y make curl
+make
 ```
 
-If the repository is already cloned, only change into its `week02` directory
-and install any missing packages.
-
-From this directory, run:
+If the repository is already cloned, navigate to the `week02` directory and run:
 
 ```sh
 make
 ```
 
-After `make` finishes, your local `week02` directory will contain a new
-`data/raw/` directory with these two downloaded files:
+The Makefile automatically creates the `data/raw/` directory and downloads these two files:
 
 - `data/raw/NC_001367.1.fasta`
 - `data/raw/NC_001367.1.gff3`
 
-These files are generated outputs and are intentionally ignored by Git, so
-they do not appear on GitHub. Every reviewer creates their own copies by
-running `make`. Verify them with:
+The downloaded files are generated data and are intentionally not stored in the Git repository. They can be verified with:
 
 ```sh
 ls -lh data/raw/
 ```
 
-Running `make` again does not redownload files that already exist. To remove
-the downloaded data and repeat the download, run:
+Running `make` again will not redownload files that already exist.
+
+To remove the downloaded files and reproduce the download from scratch, run:
 
 ```sh
 make clean
 make
 ```
 
-To count the GFF3 feature rows yourself:
+To count the annotation rows in the GFF3 file, excluding comments and directive lines, run:
 
 ```sh
 awk '!/^#/ && NF { n++ } END { print n }' data/raw/NC_001367.1.gff3
