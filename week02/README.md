@@ -26,8 +26,6 @@ reference genome**, while noting that it is a single reference isolate and
 does not represent the sequence variation found across TMV populations.
 
 
-````markdown
-
 ## Reproduce the download
 
 This assignment assumes the user is working in the course **bioinfo environment**, with `make` and `curl` available.
@@ -77,5 +75,3 @@ To count the annotation rows in the GFF3 file, excluding comment and directive l
 ```sh
 awk '!/^#/ && NF { n++ } END { print n }' gff/NC_001367.1.gff3
 ```
-````
-
