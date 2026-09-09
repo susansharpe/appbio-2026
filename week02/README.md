@@ -26,16 +26,13 @@ reference genome**, while noting that it is a single reference isolate and
 does not represent the sequence variation found across TMV populations.
 
 
+````markdown
+
 ## Reproduce the download
 
-This project requires **`make`** and **`curl`**. On Ubuntu or WSL, install them with:
+This assignment assumes the user is working in the course **bioinfo environment**, with `make` and `curl` available.
 
-```sh
-sudo apt update
-sudo apt install -y make curl
-```
-
-To reproduce the data download from a new copy of this repository:
+To reproduce the data download from a new copy of the repository:
 
 ```sh
 git clone https://github.com/susansharpe/appbio-2026.git
@@ -49,15 +46,21 @@ If the repository is already cloned, navigate to the `week02` directory and run:
 make
 ```
 
-The Makefile automatically creates the `data/raw/` directory and downloads these two files:
+The `Makefile` automatically organizes the downloaded data according to file type:
 
-- `data/raw/NC_001367.1.fasta`
-- `data/raw/NC_001367.1.gff3`
+- FASTA files are stored in the `fasta/` directory.
+- GFF3 files are stored in the `gff/` directory.
 
-The downloaded files are generated data and are intentionally not stored in the Git repository. They can be verified with:
+Running `make` downloads the following files:
+
+- `fasta/NC_001367.1.fasta`
+- `gff/NC_001367.1.gff3`
+
+The downloaded files can be checked with:
 
 ```sh
-ls -lh data/raw/
+ls -lh fasta/
+ls -lh gff/
 ```
 
 Running `make` again will not redownload files that already exist.
@@ -69,8 +72,10 @@ make clean
 make
 ```
 
-To count the annotation rows in the GFF3 file, excluding comments and directive lines, run:
+To count the annotation rows in the GFF3 file, excluding comment and directive lines, run:
 
 ```sh
-awk '!/^#/ && NF { n++ } END { print n }' data/raw/NC_001367.1.gff3
+awk '!/^#/ && NF { n++ } END { print n }' gff/NC_001367.1.gff3
 ```
+````
+
