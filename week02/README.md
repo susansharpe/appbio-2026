@@ -76,7 +76,7 @@ To count the annotation rows in the GFF3 file, excluding comment and directive l
 awk '!/^#/ && NF { n++ } END { print n }' gff/NC_001367.1.gff3
 ```
 
-```markdown
+
 ## Genome visualization
 
 ### Gene organization
@@ -109,4 +109,3 @@ The GFF3 file is displayed in IGV as an **annotation/feature track**. The file c
 ### Strand orientation
 
 The annotated gene and CDS features in the TMV GFF3 file are located on the **positive (+) strand**. Because the annotation contains positive-strand features, the positive-strand orientation is the one displayed for these features in IGV.
-```
