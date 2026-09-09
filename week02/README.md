@@ -75,3 +75,38 @@ To count the annotation rows in the GFF3 file, excluding comment and directive l
 ```sh
 awk '!/^#/ && NF { n++ } END { print n }' gff/NC_001367.1.gff3
 ```
+
+```markdown
+## Genome visualization
+
+### Gene organization
+
+The TMV genome is very tightly packed. There is little to no intergenic space, and several genes appear to overlap. Where genes are separated, the distance appears to be only on the order of tens of nucleotides. This compact organization is characteristic of viral genomes, which often maximize the amount of information encoded in a relatively small genome.
+
+### Sequence inspection and reading frames
+
+I inspected the region **NC_001367.1:80-119** in IGV and displayed the three-frame translation on both strand orientations.
+
+The six possible translated reading frames observed around this region were:
+
+- **CVAVVDAKSSVTR**
+- **VSL\*WMLKAPCQGL**
+- **LCSGC\*SQQVSDS**
+- **HRQLPHQLCWTLSE**
+- **TDSYHISFAGHCP**
+- **QTATTSALLDTVR**
+
+The asterisks (`*`) represent stop codons. After comparing the six possible reading frames with the GFF3 annotation, **QTATTSALLDTVR** corresponds to the annotated coding frame in this region.
+
+![Reading frames 1-3](images/amino_acid_seq.png)
+
+![Reading frames 4-6](images/amino_acid_seq2.png)
+
+### Annotation track
+
+The GFF3 file is displayed in IGV as an **annotation/feature track**. The file contains region, gene, and CDS features.
+
+### Strand orientation
+
+The annotated gene and CDS features in the TMV GFF3 file are located on the **positive (+) strand**. Because the annotation contains positive-strand features, the positive-strand orientation is the one displayed for these features in IGV.
+```
