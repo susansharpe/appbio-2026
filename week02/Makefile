@@ -11,7 +11,7 @@ GFF_DIR := gff
 FASTA := $(FASTA_DIR)/$(ACCESSION).fasta
 GFF := $(GFF_DIR)/$(ACCESSION).gff3
 
-.PHONY: all genome clean
+.PHONY: all genome count clean
 
 all: genome
 
@@ -24,10 +24,13 @@ $(GFF_DIR):
 	mkdir -p $@
 
 $(FASTA): | $(FASTA_DIR)
-	curl --fail --location --retry 3 --output $@ '$(FASTA_URL)'
+	@if [ -f "$@" ]; then echo "FASTA already exists: $@"; else curl --fail --location --retry 3 --output $@ '$(FASTA_URL)'; fi
 
 $(GFF): | $(GFF_DIR)
-	curl --fail --location --retry 3 --output $@ '$(GFF_URL)'
+	@if [ -f "$@" ]; then echo "GFF3 already exists: $@"; else curl --fail --location --retry 3 --output $@ '$(GFF_URL)'; fi
+
+count: $(GFF)
+	@awk '!/^#/ && NF { n++ } END { print n }' $(GFF)
 
 clean:
 	rm -rf $(FASTA_DIR) $(GFF_DIR)
