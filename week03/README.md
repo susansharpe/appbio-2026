@@ -1,6 +1,5 @@
-# week03 Collaborating with Others
+# Week 3: Collaborating with Others
 
-# week03 Collaborating with Others
 
 ## Repository reviewed
 

@@ -1,4 +1,4 @@
-# Week 02 - Tobacco mosaic virus genome data
+# Week 2: Tobacco mosaic virus genome data
 
 ## Selected genome
 

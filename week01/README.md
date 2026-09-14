@@ -1,5 +1,4 @@
-Hello World
-# Week 01 Assignment
+# Week 1: System Set Up and Basic Unix Command Line Actions
 
 ## AI-Ready Code Editor
 
